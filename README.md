@@ -1,55 +1,14 @@
+## xtoml
 
-xmake Lua script/plugin that generates an `xmake.lua` file from an `xmake.toml` file.
+### xmake.toml -> xmake.lua converter
 
-The `xtoml.lua` file can also be executed (by xmake) independently, so you can put that file directly in your repo and execute it in the root directory of your repo with: `xmake l xtoml.lua`
+To install as an xmake plugin, run:
 
-If you want to use as a plugin then first download this repo to your xmake plugins directory.
-
-## Usage
 ```bash
-xmake xtoml
+xmake plugin --install https://github.com/paul-reilly/xtoml
 ```
 
-## Example
-```toml
-[project]
-name = "Application X"
-description = "An app that does stuff."
-version = "v0.0.1"
-license = "MIT"
-languages = [ "c++20", "c17" ]
-warnings = [ "all", "error" ]
-optimize = "fastest"
-xmakebuildfile = true   # create (and include) an xmake.build.lua file
-
-[requires]
-fmt = "11.0.2"
-zlib = [ "v1.3.1", { configs = { zutil = true } } ]
-
-[requires.lua]
-version = "latest"
-configs = { shared = true }
-system = false
-
-[option.switch_safety]
-cxxflags = [ "gcc::-Wswitch-enum", "gcc::-Wswitch", "clang::-Wswitch", "msvc::/W4061" ]
-
-[target.appx]
-kind = "binary"
-options = "switch_safety"
-files = [ "src/**.cpp", "external/gitsub/src/*.cpp" ]
-includes = [ "include", "external/gitsub/include" ]
-deps = "applib"
-rpaths = "./"
-packages = [ "lua", "fmt" ]
-
-[target.applib]
-kind = "static"
-files = "lib/src/**.cpp"
-includes = [ [ "include", { public = true } ],  # this nested array creates two
-        [ "external/anothermodule/include" ] ]  # 'add_includedirs' xmake.lua entries
-defines = [ "FAST", { inherited = true } ]
-packages = [ "fmt", "zlib" ]
-```
+Please see the README.md in the `xtoml` directory for more information
+and alternative methods of using the plugin/script.
 
 
