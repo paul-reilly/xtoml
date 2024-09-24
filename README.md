@@ -20,6 +20,7 @@ license = "MIT"
 languages = [ "c++20", "c17" ]
 warnings = [ "all", "error" ]
 optimize = "fastest"
+xmakebuildfile = true   # create (and include) an xmake.build.lua file
 
 [requires]
 fmt = "11.0.2"
