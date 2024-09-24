@@ -32,7 +32,7 @@ configs = { shared = true }
 system = false
 
 [option.switch_safety]
-cxxflags = [ "gcc::-Wswitch-enum", "clang::-Wswitch", "msvc::/W3058" ]
+cxxflags = [ "gcc::-Wswitch-enum", "gcc::-Wswitch", "clang::-Wswitch", "msvc::/W4061" ]
 
 [target.appx]
 kind = "binary"
