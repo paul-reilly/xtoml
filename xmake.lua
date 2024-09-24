@@ -15,7 +15,7 @@
 -- Copyright (C) 2015-present, TBOOX Open Source Group.
 --
 -- @author      paul reilly
--- @file        toml.lua
+-- @file        xtoml.lua
 --
 
 task("xtoml")
